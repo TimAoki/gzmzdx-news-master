@@ -38,8 +38,7 @@ public class CommentController extends ApiController {
      */
     @GetMapping
     public Result selectAll(Page<Comment> page, Comment comment) {
-        return Result.buildResult(Result.ok(),this.commentService.page(page, new QueryWrapper<>(comment)));
-
+        return Result.buildResult(Result.ok(), this.commentService.page(page, new QueryWrapper<>(comment)));
     }
 
     /**
