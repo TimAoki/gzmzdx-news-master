@@ -1,10 +1,11 @@
-package com.xh.entity;
+package com.xh.pojo;
 
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,9 +14,11 @@ import java.util.Date;
  * @author 徐海
  * @since 2023-06-26 09:13:38
  */
-@SuppressWarnings("serial")
-@TableName("Comment")
-public class Comment extends Model<Comment> {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@TableName("tb_comment")
+public class Comment {
 
     private Integer id;
     //新闻id
@@ -28,64 +31,9 @@ public class Comment extends Model<Comment> {
     private String content;
     //创建时间
     private Date createTime;
+    //用户名
+//    private String username;
 
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getNewsId() {
-        return newsId;
-    }
-
-    public void setNewsId(Integer newsId) {
-        this.newsId = newsId;
-    }
-
-    public Integer getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    /**
-     * 获取主键值
-     *
-     * @return 主键值
-     */
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
 }
 

@@ -1,10 +1,13 @@
-package com.xh.entity;
+package com.xh.pojo;
 
 
-import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 /**
  * 新闻审核记录表(NewsAuditRecord)表实体类
@@ -12,8 +15,11 @@ import java.util.Date;
  * @author 徐海
  * @since 2023-06-26 09:13:40
  */
-@SuppressWarnings("serial")
-public class NewsAuditRecord extends Model<NewsAuditRecord> {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@TableName("tb_news_audit_record")
+public class NewsAuditRecord {
 
     private Integer id;
     //新闻id
@@ -25,65 +31,8 @@ public class NewsAuditRecord extends Model<NewsAuditRecord> {
     //审核意见
     private String auditOpinion;
     //创建时间
-    private Date createTime;
+    private LocalDate createTime;
 
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getNewsId() {
-        return newsId;
-    }
-
-    public void setNewsId(Integer newsId) {
-        this.newsId = newsId;
-    }
-
-    public Integer getAuditorId() {
-        return auditorId;
-    }
-
-    public void setAuditorId(Integer auditorId) {
-        this.auditorId = auditorId;
-    }
-
-    public Integer getAuditStatus() {
-        return auditStatus;
-    }
-
-    public void setAuditStatus(Integer auditStatus) {
-        this.auditStatus = auditStatus;
-    }
-
-    public String getAuditOpinion() {
-        return auditOpinion;
-    }
-
-    public void setAuditOpinion(String auditOpinion) {
-        this.auditOpinion = auditOpinion;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    /**
-     * 获取主键值
-     *
-     * @return 主键值
-     */
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
 }
 

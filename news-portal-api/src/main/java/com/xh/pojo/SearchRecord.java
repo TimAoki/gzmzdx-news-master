@@ -1,7 +1,11 @@
-package com.xh.entity;
+package com.xh.pojo;
 
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,8 +14,12 @@ import java.util.Date;
  * 搜索记录表(SearchRecord)表实体类
  *
  * @author 徐海
- * @since 2023-06-26 09:13:41
+ * @since 2023-06-26 21:17:34
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@TableName("tb_search_record")
 @SuppressWarnings("serial")
 public class SearchRecord extends Model<SearchRecord> {
 

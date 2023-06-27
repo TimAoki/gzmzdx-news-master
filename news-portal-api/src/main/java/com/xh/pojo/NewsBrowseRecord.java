@@ -1,9 +1,11 @@
-package com.xh.entity;
+package com.xh.pojo;
 
 
-import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,8 +14,11 @@ import java.util.Date;
  * @author 徐海
  * @since 2023-06-26 09:13:40
  */
-@SuppressWarnings("serial")
-public class NewsBrowseRecord extends Model<NewsBrowseRecord> {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@TableName("tb_news_browse_record")
+public class NewsBrowseRecord {
 
     private Integer id;
     //新闻id
@@ -24,46 +29,5 @@ public class NewsBrowseRecord extends Model<NewsBrowseRecord> {
     private Date createTime;
 
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getNewsId() {
-        return newsId;
-    }
-
-    public void setNewsId(Integer newsId) {
-        this.newsId = newsId;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    /**
-     * 获取主键值
-     *
-     * @return 主键值
-     */
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
 }
 

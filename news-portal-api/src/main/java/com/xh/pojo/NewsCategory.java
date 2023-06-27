@@ -1,9 +1,11 @@
-package com.xh.entity;
+package com.xh.pojo;
 
 
-import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
 
 /**
  * 新闻分类表(NewsCategory)表实体类
@@ -11,38 +13,16 @@ import java.io.Serializable;
  * @author 徐海
  * @since 2023-06-26 09:13:40
  */
-@SuppressWarnings("serial")
-public class NewsCategory extends Model<NewsCategory> {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@TableName("tb_news_category")
+public class NewsCategory {
 
     private Integer id;
     //分类名称
     private String name;
 
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * 获取主键值
-     *
-     * @return 主键值
-     */
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
 }
 

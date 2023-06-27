@@ -1,10 +1,11 @@
 package com.xh.mapper;
 
-import java.util.List;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Param;
 import com.xh.pojo.User;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 用户表(User)表数据库访问层
@@ -12,24 +13,13 @@ import com.xh.pojo.User;
  * @author 徐海
  * @since 2023-06-26 09:13:41
  */
+@Mapper
 public interface UserMapper extends BaseMapper<User> {
 
-    /**
-     * 批量新增数据（MyBatis原生foreach方法）
-     *
-     * @param entities List<User> 实例对象列表
-     * @return 影响行数
-     */
-    int insertBatch(@Param("entities") List<User> entities);
 
-    /**
-     * 批量新增或按主键更新数据（MyBatis原生foreach方法）
-     *
-     * @param entities List<User> 实例对象列表
-     * @return 影响行数
-     * @throws org.springframework.jdbc.BadSqlGrammarException 入参是空List的时候会抛SQL语句错误的异常，请自行校验入参
-     */
-    int insertOrUpdateBatch(@Param("entities") List<User> entities);
+    User findUserByUsername(String username);
 
+    // @Param("ew") 指定参数的名称
+    User findMyUserByWrapper(@Param("ew") Wrapper<User> wrapper);
 }
 
